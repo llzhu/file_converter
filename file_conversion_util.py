@@ -92,7 +92,7 @@ def get_df_xlsx(df, sheet_name=None):
 def get_df_csv(df, sep):
     f = StringIO()
     df.to_csv(f, sep=sep, index=False)
-    return f.getvalue()
+    return f.getvalue() 
 
 def get_df_sdf(df, structure_column, forceV3000=False):
     f = StringIO()
