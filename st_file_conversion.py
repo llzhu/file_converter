@@ -603,7 +603,7 @@ if df_upload is not None:
             v3000 = st.checkbox("Force V3000")
             sdf_download_file_name = f'{upload_file_name}_{date_str}.sdf'
             PandasTools.AddMoleculeColumnToFrame(df_upload, SMILES, STRUCTURE, includeFingerprints=False)
-            st.download_button('Download Sdf file', get_df_sdf(df_upload, STRUCTURE, v3000), sdf_download_file_name)
+            st.download_button('Download Sdf file', get_df_sdf(df_upload, STRUCTURE, forceV3000=v3000), sdf_download_file_name)
     
     # df_headers = pd.DataFrame({'Header': list(df_upload)})
     # headers_container.dataframe(df_headers)

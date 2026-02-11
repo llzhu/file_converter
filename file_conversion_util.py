@@ -86,7 +86,7 @@ def get_df_xlsx(df, sheet_name=None):
         df.to_excel(f, sheet_name=sheet_name, index=False)
     else:
         df.to_excel(f, index=False)
-        
+
     return f.getvalue()
 
 def get_df_csv(df, sep):
@@ -94,9 +94,9 @@ def get_df_csv(df, sep):
     df.to_csv(f, sep=sep, index=False)
     return f.getvalue()
 
-def get_df_sdf(df, structure_column):
+def get_df_sdf(df, structure_column, forceV3000=False):
     f = StringIO()
-    PandasTools.WriteSDF(df, f, molColName=structure_column, properties=list(df.columns), allNumeric=False)
+    PandasTools.WriteSDF(df, f, molColName=structure_column, properties=list(df.columns), allNumeric=False, forceV3000=forceV3000)
     return f.getvalue()
 
 def get_val_list(df, col):
