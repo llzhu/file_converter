@@ -599,7 +599,7 @@ if df_upload is not None:
     #         csv_download_file_name = f'{upload_file_name}_{date_str}_{idx+1}.csv'
     #         csv_download_container.download_button(f'Download [{idx+1}]', get_df_csv(df_trunk, sep=delimiter), csv_download_file_name)
     if SMILES in df_upload:
-        with csv_download_container.popover('Download SD file'):
+        with sdf_download_container.popover('Download SD file'):
             v3000 = st.checkbox("Force V3000")
             sdf_download_file_name = f'{upload_file_name}_{date_str}.sdf'
             PandasTools.AddMoleculeColumnToFrame(df_upload, SMILES, STRUCTURE, includeFingerprints=False)
