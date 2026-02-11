@@ -1,0 +1,5 @@
+.env
+__pycache__/*
+rsconnect-python/*
+lightning_logs/*
+debug.log
