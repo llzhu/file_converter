@@ -598,11 +598,12 @@ if df_upload is not None:
     #     for idx, df_trunk in enumerate(df_chunk_list):
     #         csv_download_file_name = f'{upload_file_name}_{date_str}_{idx+1}.csv'
     #         csv_download_container.download_button(f'Download [{idx+1}]', get_df_csv(df_trunk, sep=delimiter), csv_download_file_name)
-
-    sdf_download_file_name = f'{upload_file_name}_{date_str}.sdf'
     if SMILES in df_upload:
-        PandasTools.AddMoleculeColumnToFrame(df_upload, SMILES, STRUCTURE, includeFingerprints=False)
-        sdf_download_container.download_button('Download Sdf file', get_df_sdf(df_upload, STRUCTURE), sdf_download_file_name)
+        with csv_download_container.popover('Download SD file'):
+            v3000 = st.checkbox("Force V3000")
+            sdf_download_file_name = f'{upload_file_name}_{date_str}.sdf'
+            PandasTools.AddMoleculeColumnToFrame(df_upload, SMILES, STRUCTURE, includeFingerprints=False)
+            st.download_button('Download Sdf file', get_df_sdf(df_upload, STRUCTURE, v3000), sdf_download_file_name)
     
     # df_headers = pd.DataFrame({'Header': list(df_upload)})
     # headers_container.dataframe(df_headers)
