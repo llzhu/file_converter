@@ -41,8 +41,7 @@ def get_file_type(uploaded_file):
 
 def get_sdf_df(uploaded_file):
     if uploaded_file is not None:
-        df_upload = PandasTools.LoadSDF(uploaded_file, idName='__ID__', smilesName=SMILES, molColName=STRUCTURE)
-        del df_upload['__ID__']
+        df_upload = PandasTools.LoadSDF(uploaded_file, idName='Title', smilesName=SMILES, molColName=STRUCTURE)
         return df_upload
     
 

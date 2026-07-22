@@ -193,6 +193,8 @@ headers = list(df_upload)
 merge_expander = st.sidebar.expander("Merge External File")
 with merge_expander:
     df_merge = None
+    merge_type = st.radio("How:", ['Horizontal', 'Vertical'])
+
     merge_file = st.file_uploader("File to be merged:")
     if merge_file:
         file_type = get_file_type(merge_file)
@@ -227,17 +229,19 @@ with merge_expander:
     #     merge_container.dataframe(df_merge)
 
     if df_upload is not None and df_merge is not None:
-        upload_col, merge_col = st.columns(2)
-        upload_headers = list(df_upload)
-        upload_headers.insert(0,'--')
-        merge_headers = list(df_merge)
-        merge_headers.insert(0, '--')
-        left_on = upload_col.selectbox('File merged on:', upload_headers, key='merge_left')
-        right_on = merge_col.selectbox('Merged file on:', merge_headers, key='merge_right')
-        if left_on != '--' and right_on != '--':
-            df_upload = df_upload.merge(df_merge, left_on=left_on, right_on=right_on, how='left')
+        if merge_type =='Horizontal':
+            upload_col, merge_col = st.columns(2)
+            upload_headers = list(df_upload)
+            upload_headers.insert(0,'--')
+            merge_headers = list(df_merge)
+            merge_headers.insert(0, '--')
+            left_on = upload_col.selectbox('File merged on:', upload_headers, key='merge_left')
+            right_on = merge_col.selectbox('Merged file on:', merge_headers, key='merge_right')
+            if left_on != '--' and right_on != '--':
+                df_upload = df_upload.merge(df_merge, left_on=left_on, right_on=right_on, how='left')
 
-
+        elif merge_type =='Vertical':
+            df_upload = pd.concat([df_upload, df_merge], ignore_index=True)
 
 value_mapping_expander = st.sidebar.expander("Value mapping or modification")
 with value_mapping_expander:
