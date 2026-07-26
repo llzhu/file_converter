@@ -1,0 +1,9 @@
+name: st-file-converter
+
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8501:8501"
+   
+   

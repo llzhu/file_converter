@@ -1,5 +1,7 @@
 .env
+.streamlit/secrets.toml
 __pycache__/*
 rsconnect-python/*
 lightning_logs/*
+.vscode/*
 debug.log
