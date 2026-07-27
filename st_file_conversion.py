@@ -9,7 +9,8 @@ from datetime import date
 import math
 from file_conversion_util import *
 
-
+import faulthandler
+faulthandler.enable()
 
 
 st.set_page_config(page_title='Data file conversion', layout='wide')
