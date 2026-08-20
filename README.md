@@ -3,5 +3,5 @@ It is a Streamlit application used for file procession and conversion for CVS, E
 It can perform most Excel manipulations, and operations like pivit/unpivot, merge with another files.
 
 It is deployed on:
-Streamlit community cloud:  https://data-procession-conversion.streamlit.app/
-AWS: http://52.73.41.141:8501/
+- Streamlit community cloud:  https://data-procession-conversion.streamlit.app/
+- AWS: http://52.73.41.141:8501/
